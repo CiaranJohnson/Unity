@@ -4,11 +4,13 @@ public class Help {
 
     private String displayName;
     private String description;
+    private String title;
     private Double latitude;
     private Double longitude;
     private int offerCounter;
 
-    public Help(String displayName, String description, Double latitude, Double longitude, int offerCounter) {
+    public Help(String title, String displayName, String description, Double latitude, Double longitude, int offerCounter) {
+        this.title = title;
         this.displayName = displayName;
         this.description = description;
         this.latitude = latitude;
@@ -17,6 +19,14 @@ public class Help {
     }
 
     public Help() {
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getOfferCounter() {

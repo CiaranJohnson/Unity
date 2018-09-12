@@ -22,23 +22,28 @@ public class OptionsActivity extends AppCompatActivity {
     }
 
     public void goToAskForHelp(View view){
+        Log.d(TAG, "goToAskForHelp: selected");
         Intent intent = new Intent(OptionsActivity.this, createHelpActivity.class);
         startActivity(intent);
     }
 
     public void search(View view){
+        Log.d(TAG, "search: selected");
         Intent intent = new Intent(OptionsActivity.this, SearchActivity.class);
         startActivity(intent);
     }
 
     public void helpOut(View view){
-//        Intent intent = new Intent(OptionsActivity.this, );
-//        startActivity(intent);
+        Log.d(TAG, "opened: ViewOfferActivity");
+        
+        Intent intent = new Intent(OptionsActivity.this, ViewOffersActivity.class);
+        startActivity(intent);
 
     }
 
 
     public void inviteFriend(View view){
+        Log.d(TAG, "inviteFriend: selected");
         Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
                 .setMessage(getString(R.string.invitation_message))
                 .setCallToActionText(getString(R.string.invitation_cta))

@@ -29,7 +29,7 @@ public class createHelpActivity extends AppCompatActivity {
     public static final String TAG = "createHelpActivty";
     Button addHelpButton;
 
-    EditText etDescription, etReward;
+    EditText etDescription, etReward, etTitle;
 
     private DatabaseReference table_help, table_user;
 
@@ -55,6 +55,7 @@ public class createHelpActivity extends AppCompatActivity {
 
         etDescription = (EditText) findViewById(R.id.etDescription);
         etReward = (EditText) findViewById(R.id.etReward);
+        etTitle = (EditText) findViewById(R.id.etTitle);
 
         //Creating a instance of the firebase database which stores user information and location information
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -78,9 +79,11 @@ public class createHelpActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(Integer.parseInt(etReward.getText().toString())>Common.currentUser.getCoins()){
-                            Toast.makeText(createHelpActivity.this, "You do not have enough Coins.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(createHelpActivity.this,
+                                    "You do not have enough Coins.", Toast.LENGTH_LONG).show();
                         } else if(Integer.parseInt(etReward.getText().toString())<0){
-                            Toast.makeText(createHelpActivity.this, "Oops you need to use some coins.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(createHelpActivity.this,
+                                    "Oops you need to use some coins.", Toast.LENGTH_LONG).show();
                         } else {
                             if(!added){
 
@@ -88,10 +91,12 @@ public class createHelpActivity extends AppCompatActivity {
                                 Double latitude = Common.latLng.latitude;
                                 Double longitude = Common.latLng.longitude;
 
-                                newHelp = new Help(firebaseUser.getDisplayName(), etDescription.getText().toString(), latitude, longitude, 0);
+                                newHelp = new Help(etTitle.getText().toString(), firebaseUser.getDisplayName(),
+                                        etDescription.getText().toString(), latitude, longitude, 0);
                                 newOffer = new Offers("No one");
                                 Common.help = newHelp;
 
+                                //look at this and see if I can get rid of the common.currentUser
                                 User user = Common.currentUser;
 
 
@@ -105,7 +110,8 @@ public class createHelpActivity extends AppCompatActivity {
 
 
                                 table_user.child(firebaseUser.getUid()).setValue(Common.currentUser);
-                                table_help.child(firebaseUser.getUid()).child(Integer.toString(Common.currentUser.getNumRequests()))
+                                table_help.child(firebaseUser.getUid()).child(
+                                        Integer.toString(Common.currentUser.getNumRequests()))
                                         .setValue(Common.help);
 
 
