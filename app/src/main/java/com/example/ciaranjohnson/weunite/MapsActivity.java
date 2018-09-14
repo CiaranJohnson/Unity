@@ -285,7 +285,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                                         FirebaseDatabase fbOffers = FirebaseDatabase.getInstance();
                                         final DatabaseReference table_offers = fbOffers.getReference("Offers");
-                                        final Offers offer = new Offers(mFirebaseUser.getUid());
+                                        final Offers offer = new Offers(mFirebaseUser.getUid(), mFirebaseUser.getDisplayName());
 
                                         table_offers.addValueEventListener(new ValueEventListener() {
                                             @Override

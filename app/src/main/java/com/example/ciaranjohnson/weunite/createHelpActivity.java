@@ -93,7 +93,7 @@ public class createHelpActivity extends AppCompatActivity {
 
                                 newHelp = new Help(etTitle.getText().toString(), firebaseUser.getDisplayName(),
                                         etDescription.getText().toString(), latitude, longitude, 0);
-                                newOffer = new Offers("No one");
+                                newOffer = new Offers("No one", "No one");
                                 Common.help = newHelp;
 
                                 //look at this and see if I can get rid of the common.currentUser

@@ -58,7 +58,8 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".ViewOffersActivity"></activity>
+        <activity android:name=".ViewOffersActivity" />
+        <activity android:name=".SelectUserToHelpActivity"></activity>
     </application>
 
 </manifest>
