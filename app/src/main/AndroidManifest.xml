@@ -59,7 +59,8 @@
         <activity android:name=".ChatActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ViewOffersActivity" />
-        <activity android:name=".SelectUserToHelpActivity"></activity>
+        <activity android:name=".SelectUserToHelpActivity" />
+        <activity android:name=".SelectChatActivity"></activity>
     </application>
 
 </manifest>

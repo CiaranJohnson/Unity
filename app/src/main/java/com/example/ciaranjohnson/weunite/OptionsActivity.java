@@ -54,7 +54,7 @@ public class OptionsActivity extends AppCompatActivity {
 
 
     public void openChat(View view){
-        Intent intent = new Intent(OptionsActivity.this, ChatActivity.class);
+        Intent intent = new Intent(OptionsActivity.this, SelectChatActivity.class);
         startActivity(intent);
 
     }
